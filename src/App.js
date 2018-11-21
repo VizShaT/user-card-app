@@ -1,16 +1,23 @@
 import React, { Component } from "react";
-import user from "./images/user.png";
+//import user from "./images/user.png";
 import "./App.css";
+import { createStore } from "redux";
+import reducer from "./reducers";
+
+const initialState = {
+  name: "Shakal Shaktishaali",
+  description: "Bhoot, Ghost and Serial Killer",
+  likes: "Cats, Wine, and Black dresses",
+  location: "Haveli"
+};
+
+const store = createStore(reducer, initialState);
 
 class App extends Component {
-  state = {
-    name: "Shakal Shaktishaali",
-    description: "Bhoot, Ghost and Serial Killer",
-    likes: "Cats, Wine, and Black dresses",
-    location: "Haveli"
-  };
   render() {
-    const { name, description, likes, location } = this.state;
+    const { name, description, likes, location } = store.getState();
+    const user =
+      "https://png2.kisspng.com/20180509/sxe/kisspng-avatar-youtube-8-ball-pool-user-5af328dc4a5fe1.9082586915258851483047.png";
     return (
       <div className="App">
         <section className="User__img">
