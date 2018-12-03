@@ -6,7 +6,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
 
 const render = () => ReactDOM.render(<App />, document.getElementById("root"));
-
+window.store = store;
 render();
 store.subscribe(render);
 registerServiceWorker();

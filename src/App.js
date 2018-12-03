@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import store from "./store";
 import user from "./images/user.png";
 import "./App.css";
+import { fetchUserProfile } from "./actions";
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(fetchUserProfile());
+  }
   render() {
     const {
       name = ". . .",
